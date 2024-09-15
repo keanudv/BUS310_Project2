@@ -51,22 +51,3 @@ plt.show()
 # Calculate the Correlation Coefficient
 correl = lahaina_df["Living_SQFT"].corr(final_df["Sold_Price"])
 print(correl)
-
-'''
-There are a few outliers that we need to drop. To do this, we can use the Interquartile Range (IQR) method:
-  Step 1: Calculate the IQR.
-  Step 2: Define the boundaries.
-  Step 3: Drop the outliers.
-'''
-
-# Step 1: Calculate the IQR for the sold price
-Q1 = lahaina_df["Sold_Price"].quantile(0.25)
-Q3 = lahaina_df["Sold_Price"].quantile(0.75)
-IQR = Q3 - Q1
-
-# Step 2: Define the outlier boundaries
-lower_bound = Q1 - 1.5 * IQR
-upper_bound = Q3 + 1.5 * IQR
-
-# Step 3: Drop the outliers
-filtered_df = lahaina_df[(lahaina_df["Sold_Price"] >= lower_bound) & (lahaina_df["Sold_Price"] <= upper_bound)]
