@@ -8,6 +8,7 @@ Class: BUS 310 (Data Science/Decision Science)
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import statsmodels.api as sm
 
 # Load the dataset into Python
 file_location = "C:\\Users\\keanu\\OneDrive\\Desktop\\School\\BUS 310\\BUS 310 Project 2\\hotsheet.csv"
@@ -41,6 +42,13 @@ lahaina_df = final_df[final_df["City"]=="Lahaina"]
 lahaina_df.head(10)
 lahaina_df.tail(10)
 
+# Create the scatterplot
+sns.scatterplot(data=lahaina_df, x="Living_SQFT", y="Sold_Price", color="red")
+plt.title("Square Foot vs. Price", fontsize=30)
+plt.xlabel("Square Foot", fontsize=20)
+plt.ylabel("Sold Price (In Millions)", fontsize=20)
+plt.show()
+
 # Create the scatterplot with a trend line
 sns.regplot(data=lahaina_df, x="Living_SQFT", y="Sold_Price", color="red")
 plt.title("Square Foot vs. Price", fontsize=30)
@@ -51,3 +59,12 @@ plt.show()
 # Calculate the Correlation Coefficient
 correl = lahaina_df["Living_SQFT"].corr(final_df["Sold_Price"])
 print(correl)
+
+# Show the Regression Equation and R=Squared
+x = sm.add_constant(lahaina_df["Living_SQFT"])
+y = lahaina_df["Sold_Price"]
+model = sm.OLS(y, x).fit()
+intercept, slope = model.params
+r = model.rsquared
+print(f"Regression Equation: y = {slope:.2f}x + {intercept:.2f}")
+print(f"R-Squared: {r:.2f}")
