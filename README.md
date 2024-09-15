@@ -7,4 +7,4 @@
 <p>Start Date: 9/14/24</p>
 <p>Finish Date: </p>
 
-<p>For this project, I will use Python to create a scatter plot in order to make predictions. I will also calculate the Correlation Coefficent to determine the strength of the relationship between the two varibles being graphed. The end goal is to create a presentation to report my findings.</p>
+<p>For this project, I will use Python to create a scatter plot in order to make predictions. I will also calculate the Correlation coefficient to determine the strength of the relationship between the two varibles being graphed. The end goal is to create a presentation to report my findings.</p>
