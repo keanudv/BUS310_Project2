@@ -1,7 +1,7 @@
 '''
 Name: Keanu Valencia
 Date: 9/14/24
-Class: BUS 310
+Class: BUS 310 (Data Science/Decision Science)
 '''
 
 # Import the Libraries
@@ -25,9 +25,7 @@ clean_df.isnull().sum()
 
 # Select the needed columns for the scatter plot
 columns = [
+  "City",
   "Land_SQFT",
   "Sold_Price"
 ]
-
-# Create the final dataframe used for analysis
-final_df = clean_df[columns]
