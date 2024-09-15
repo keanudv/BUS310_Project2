@@ -29,3 +29,25 @@ columns = [
   "Land_SQFT",
   "Sold_Price"
 ]
+
+# Create the final dataframe used for analysis
+final_df = clean_df[columns]
+
+
+# Filter the final dataframe to include only Lahaina properties
+lahaina_df = final_df[final_df["City"]=="Lahaina"]
+
+# Verify that only Lahaina properties are in the dataset
+lahaina_df.head(10)
+lahaina_df.tail(10)
+
+# Create the scatterplot with a trend line
+sns.regplot(data=lahaina_df, x="Land_SQFT", y="Sold_Price", color="red")
+plt.title("Square Foot vs. Price", fontsize=30)
+plt.xlabel("Square Foot (In Millions)", fontsize=20)
+plt.ylabel("Sold Price (In Millions)", fontsize=20)
+plt.show()
+
+# Calculate the Correlation Coefficient
+correl = lahaina_df["Land_SQFT"].corr(lahaina_df["Sold_Price"])
+print(correl)
