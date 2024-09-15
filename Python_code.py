@@ -23,7 +23,7 @@ df.isnull().sum()
 clean_df = df.dropna()
 clean_df.isnull().sum()
 
-# Select the needed columns for the scatter plot
+# Select the needed columns
 columns = [
   "City",
   "Land_SQFT",
