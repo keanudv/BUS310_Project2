@@ -49,6 +49,7 @@ plt.ylabel("Sold Price (In Millions)", fontsize=20)
 plt.show()
 
 # Calculate the Correlation Coefficient
+correl = lahaina_df["Living_SQFT"].corr(final_df["Sold_Price"])
 print(correl)
 
 '''
